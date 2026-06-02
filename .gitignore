@@ -21,4 +21,10 @@ gradle-app.setting
 .classpath
 
 
-.idea
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea/*
+!.idea/scopes
