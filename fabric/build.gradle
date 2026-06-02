@@ -1,0 +1,59 @@
+plugins {
+    id 'multiloader-loader'
+    id 'fabric-loom'// version '1.14.10'
+}
+dependencies {
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    mappings loom.layered {
+        officialMojangMappings()
+        parchment("org.parchmentmc.data:parchment-${parchment_minecraft}:${parchment_version}@zip")
+    }
+    modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+
+
+    modImplementation "curse.maven:journeymap-32274:8156288" //beta.78
+    modImplementation "curse.maven:journeymap-api-242519:2477604"
+    modImplementation "curse.maven:journeymap-api-242519:2477606" //javadoc
+    modCompileOnly "curse.maven:journeymap-api-242519:2477607" //sources
+    //modCompileOnly "curse.maven:infinite-dimensions-981829:7739050"
+    modCompileOnly "curse.maven:northstar-redux-1318310:7476517"
+    modCompileOnly "curse.maven:stellaris-1036270:8154666"
+    modImplementation "info.journeymap:journeymap-api-fabric:2.0.0-1.21.1-SNAPSHOT"
+
+    /**
+     implementation "curse.maven:journeymap-32274:8156290" //beta.78
+     //implementation "curse.maven:journeymap-32274:7905418" //beta.62
+     implementation "curse.maven:journeymap-api-242519:2477604"
+     implementation "curse.maven:journeymap-api-242519:2477606" //javadoc
+     compileOnly "curse.maven:journeymap-api-242519:2477607" //sources
+     //implementation "curse.maven:infinite-dimensions-981829:7739052"
+     compileOnly "curse.maven:northstar-redux-1318310:7476517"
+     compileOnly "curse.maven:stellaris-1036270:8154670"
+     compileOnly "info.journeymap:journeymap-api-neoforge:2.0.0-1.21.1-SNAPSHOT"
+     */
+}
+
+loom {
+    def aw = project(':common').file("src/main/resources/${mod_id}.accesswidener")
+    if (aw.exists()) {
+        accessWidenerPath.set(aw)
+    }
+    mixin {
+        defaultRefmapName.set("${mod_id}.refmap.json")
+    }
+    runs {
+        client {
+            client()
+            setConfigName('Fabric Client')
+            ideConfigGenerated(true)
+            runDir('runs/client')
+        }
+        server {
+            server()
+            setConfigName('Fabric Server')
+            ideConfigGenerated(true)
+            runDir('runs/server')
+        }
+    }
+}

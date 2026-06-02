@@ -1,0 +1,120 @@
+---- Minecraft Crash Report ----
+// Hey, that tickles! Hehehe!
+
+Time: 2026-05-31 01:11:59
+Description: Mod loading failures have occurred; consult the issue messages for more details
+
+net.neoforged.neoforge.logging.CrashReportExtender$ModLoadingCrashException: Mod loading has failed
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Mod loading issue --
+Details:
+	Mod file: <No mod information provided>
+	Failure message: File C:\Users\Hamish\.gradle\caches\modules-2\files-2.1\curse.maven\journeymap-api-242519\2477607\77c23762bb9a6b89fa7f4860ec9bb1c6ecea1d2\journeymap-api-242519-2477607.jar is for an old version of Minecraft Forge and cannot be loaded
+	Mod version: <No mod information provided>
+	Mod issues URL: <No issues URL found>
+	Exception message: <No associated exception found>
+
+-- Mod loading issue for: stellaris --
+Details:
+	Mod file: /C:/Users/Hamish/.gradle/caches/modules-2/files-2.1/curse.maven/stellaris-1036270/8154670/43aeb4a82628abf37b6dbab96594af5eaafb3fb4/stellaris-1036270-8154670.jar
+	Failure message: Mod stellaris requires potentials 0.7.0 or above
+		Currently, potentials is not installed
+		
+	Mod version: 1.4.23
+	Mod issues URL: https://github.com/st0x0ef/Stellaris/issues
+	Exception message: <No associated exception found>
+
+-- Mod loading issue for: northstar --
+Details:
+	Mod file: /C:/Users/Hamish/.gradle/caches/modules-2/files-2.1/curse.maven/northstar-redux-1318310/7476517/a0aca16a22ba035992481442f0e1559c87e161bf/northstar-redux-1318310-7476517.jar
+	Failure message: Mod northstar requires create 6.0 or above
+		Currently, create is not installed
+		
+	Mod version: 0.5.4+1.21.1
+	Mod issues URL: https://github.com/Astronauts-of-Create/Northstar-Redux/issues
+	Exception message: <No associated exception found>
+
+-- Mod loading issue for: stellaris --
+Details:
+	Mod file: /C:/Users/Hamish/.gradle/caches/modules-2/files-2.1/curse.maven/stellaris-1036270/8154670/43aeb4a82628abf37b6dbab96594af5eaafb3fb4/stellaris-1036270-8154670.jar
+	Failure message: Mod stellaris requires architectury 13.0.6 or above
+		Currently, architectury is not installed
+		
+	Mod version: 1.4.23
+	Mod issues URL: https://github.com/st0x0ef/Stellaris/issues
+	Exception message: <No associated exception found>
+
+-- Mod loading issue for: northstar --
+Details:
+	Mod file: /C:/Users/Hamish/.gradle/caches/modules-2/files-2.1/curse.maven/northstar-redux-1318310/7476517/a0aca16a22ba035992481442f0e1559c87e161bf/northstar-redux-1318310-7476517.jar
+	Failure message: Mod northstar requires geckolib 4.7 or above, and below 5.0
+		Currently, geckolib is not installed
+		
+	Mod version: 0.5.4+1.21.1
+	Mod issues URL: https://github.com/Astronauts-of-Create/Northstar-Redux/issues
+	Exception message: <No associated exception found>
+
+-- System Details --
+Details:
+	Minecraft Version: 1.21.1
+	Minecraft Version ID: 1.21.1
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 21.0.10, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode, sharing), Oracle Corporation
+	Memory: 135238216 bytes (128 MiB) / 507510784 bytes (484 MiB) up to 4221566976 bytes (4026 MiB)
+	CPUs: 16
+	Processor Vendor: GenuineIntel
+	Processor Name: 12th Gen Intel(R) Core(TM) i9-12900K
+	Identifier: Intel64 Family 6 Model 151 Stepping 2
+	Microarchitecture: Alder Lake
+	Frequency (GHz): 3.19
+	Number of physical packages: 1
+	Number of physical CPUs: 16
+	Number of logical CPUs: 16
+	Graphics card #0 name: NVIDIA GeForce GTX 1660
+	Graphics card #0 vendor: NVIDIA
+	Graphics card #0 VRAM (MiB): 6144.00
+	Graphics card #0 deviceId: VideoController1
+	Graphics card #0 versionInfo: 32.0.15.9636
+	Graphics card #1 name: Intel(R) UHD Graphics 770
+	Graphics card #1 vendor: Intel Corporation
+	Graphics card #1 VRAM (MiB): 2048.00
+	Graphics card #1 deviceId: VideoController2
+	Graphics card #1 versionInfo: 32.0.101.7082
+	Memory slot #0 capacity (MiB): 8192.00
+	Memory slot #0 clockSpeed (GHz): 3.20
+	Memory slot #0 type: DDR4
+	Memory slot #1 capacity (MiB): 8192.00
+	Memory slot #1 clockSpeed (GHz): 3.20
+	Memory slot #1 type: DDR4
+	Virtual memory max (MiB): 37626.04
+	Virtual memory used (MiB): 33436.52
+	Swap memory total (MiB): 21524.92
+	Swap memory used (MiB): 5835.59
+	Space in storage for jna.tmpdir (MiB): <path not set>
+	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): <path not set>
+	Space in storage for io.netty.native.workdir (MiB): <path not set>
+	Space in storage for java.io.tmpdir (MiB): available: 1382.32, total: 121459.00
+	Space in storage for workdir (MiB): available: 78439.34, total: 1716940.00
+	JVM Flags: 0 total; 
+	ModLauncher: 11.0.4+main.d2e20e43
+	ModLauncher launch target: forgeclientuserdev
+	ModLauncher services: 
+		sponge-mixin-0.15.2+mixin.0.8.7.jar mixin PLUGINSERVICE 
+		loader-4.0.31.jar slf4jfixer PLUGINSERVICE 
+		loader-4.0.31.jar runtime_enum_extender PLUGINSERVICE 
+		at-modlauncher-10.0.1.jar accesstransformer PLUGINSERVICE 
+		loader-4.0.31.jar runtimedistcleaner PLUGINSERVICE 
+		modlauncher-11.0.4.jar mixin TRANSFORMATIONSERVICE 
+		modlauncher-11.0.4.jar fml TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		javafml@4.0
+		lowcodefml@4.0
+		minecraft@4.0
+	Mod List: 
+		neoforge-21.1.80-minecraft.jar                    |Minecraft                     |minecraft                     |1.21.1              |Manifest: NOSIGNATURE
+		neoforge-21.1.80-minecraft.jar                    |NeoForge                      |neoforge                      |21.1.80             |Manifest: NOSIGNATURE
