@@ -9,8 +9,9 @@ import journeymap.api.v2.common.event.ClientEventRegistry;
 import journeymap.api.v2.common.waypoint.Waypoint;
 import journeymap.api.v2.common.waypoint.WaypointFactory;
 import journeymap.api.v2.common.waypoint.WaypointGroup;
-import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientChunkEvents;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientWorldEvents;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
@@ -18,11 +19,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
-import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientWorldEvents;
-import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.world.level.levelgen.Heightmap;
-//import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,10 +59,10 @@ public class AutoPortalWaypointsFabricJMPlugin implements IClientPlugin {
         List<? extends Waypoint> waypoints = jmAPI.getAllWaypoints(dim); //check all waypoints in this dimension
         for (int i = 0; i < waypoints.size(); i++) {
             Waypoint waypoint = waypoints.get(i);
-            if (false) { //TODO implement config
+            if (YACLConfigFabric.HANDLER.instance().duplicateProximity == -1) {
                 return true; // simplest way to turn this mod off :)
             }
-            if (waypoint.getBlockPos().closerThan(coord, 3)){ //TODO implement config //if it is within a cube of radius 3, consider it a duplicate
+            if (waypoint.getBlockPos().closerThan(coord, YACLConfigFabric.HANDLER.instance().duplicateProximity)){ //if it is within a cube of radius 3, consider it a duplicate
                 return true; //a waypoint is too close, it is probably a duplicate
             }
         }
@@ -89,9 +86,10 @@ public class AutoPortalWaypointsFabricJMPlugin implements IClientPlugin {
         this.jmAPI = jmClientApi;
         ClientEventRegistry.MAPPING_EVENT.subscribe(Constants.MOD_ID, this::mappingStageEvent);
 
+        YACLConfigFabric.HANDLER.load(); //Stolen from Bridging Mod
+
         //Constants.LOG.info("Initialized " + getClass().getName());
-        //waypointgroup.setShowBeacon(Config.BEACONS_ENABLED.get()); //TODO implement config
-        waypointgroup.setShowBeacon(false);
+        waypointgroup.setShowBeacon(YACLConfigFabric.HANDLER.instance().beaconsEnabled); // Stolen from Bridging Mod
         waypointgroup.setOverrideSettings(true);
 
 
@@ -114,6 +112,7 @@ public class AutoPortalWaypointsFabricJMPlugin implements IClientPlugin {
 
                 }
             }
+
             //entryDim = event.getOldPlayer().level().dimension();
             //destinationDim = event.getNewPlayer().level().dimension();
             destinationDim = world.dimension(); //NOTE this is Fabric-unique code

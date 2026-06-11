@@ -53,7 +53,7 @@ public class AutoPortalWaypointsNeoforgeJMPlugin implements IClientPlugin{
     static WaypointGroup waypointgroup = WaypointFactory.createWaypointGroup(Constants.MOD_ID, "Portals");
 
     @SubscribeEvent
-    public static void networkEvent(ClientPlayerNetworkEvent.Clone event) { //BODGE This is called whenever the player changes dimensions, so I can use it like a client-side PlayerChangedDimensionEvent event
+    public static void networkEvent(ClientPlayerNetworkEvent.Clone event) { //BODGE This is called whenever the player changes dimensions, so I can use it like a client-side PlayerChangedDimensionEvent event. Maybe change to LevelEvent.Load
         if (event.getOldPlayer().getHealth() == event.getNewPlayer().getHealth()) { //i.e. teleported, not respawned
             if (exclusions.isEmpty()) { //exclusions should always contain Level.END. If it doesn't, then this is the first time changing dimensions. Please don't change dependency mods after changing dimensions.
                 exclusions.add(Level.END);
@@ -74,6 +74,7 @@ public class AutoPortalWaypointsNeoforgeJMPlugin implements IClientPlugin{
 
                 }
             }
+
             entryDim = event.getOldPlayer().level().dimension();
             destinationDim = event.getNewPlayer().level().dimension();
 

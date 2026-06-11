@@ -56,6 +56,17 @@ repositories {
 
     // JourneyMap API snapshots are here
     maven { url 'https://oss.sonatype.org/content/groups/public/' }
+
+    // For YACL
+    maven {
+        name 'Xander Maven'
+        url 'https://maven.isxander.dev/releases'
+    }
+    // For Mod Menu
+    maven {
+        name = "Terraformers"
+        url = "https://maven.terraformersmc.com/"
+    }
 }
 
 // Declare capabilities on the outgoing configurations.

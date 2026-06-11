@@ -20,6 +20,9 @@
         ],
         "journeymap": [
             "com._101929ha.autoportalwaypoints.AutoPortalWaypointsFabricJMPlugin"
+        ],
+        "modmenu": [
+            "com._101929ha.autoportalwaypoints.ModMenuIntegration"
         ]
     },
     "mixins": [
@@ -31,7 +34,8 @@
         "fabric-api": "*",
         "minecraft": "${minecraft_version}",
         "java": ">=${java_version}",
-        "journeymap": ">=1.21.1-6.0.0-beta.78"
+        "journeymap": ">=1.21.1-6.0.0-beta.78",
+        "yet_another_config_lib_v3": "*"
     },
     "suggests": {
         "another-mod": "*"

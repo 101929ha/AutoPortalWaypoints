@@ -24,8 +24,9 @@ public class Config {
     
     public static final ModConfigSpec.BooleanValue BEACONS_ENABLED = BUILDER
     		.comment("",
-    				"Whether the 'Portals' WaypointGroup will have beacons enabled",
-    				"Beacons can ruin the experience of supported spaceship mods such as Create: Northstar - Redux")
+    				"Whether the 'Portals' WaypointGroup will have beacons enabled.",
+    				"Beacons can ruin the experience of supported spaceship mods such as Create: Northstar - Redux.",
+					"The 'Portals' waypoint group must be deleted for this to take effect, or the waypoint group's settings can be changed manually.")
     		.define("beaconsEnabled", false);
     
     /**

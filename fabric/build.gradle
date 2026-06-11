@@ -21,17 +21,9 @@ dependencies {
     modCompileOnly "curse.maven:stellaris-1036270:8154666"
     modImplementation "info.journeymap:journeymap-api-fabric:2.0.0-1.21.1-SNAPSHOT"
 
-    /**
-     implementation "curse.maven:journeymap-32274:8156290" //beta.78
-     //implementation "curse.maven:journeymap-32274:7905418" //beta.62
-     implementation "curse.maven:journeymap-api-242519:2477604"
-     implementation "curse.maven:journeymap-api-242519:2477606" //javadoc
-     compileOnly "curse.maven:journeymap-api-242519:2477607" //sources
-     //implementation "curse.maven:infinite-dimensions-981829:7739052"
-     compileOnly "curse.maven:northstar-redux-1318310:7476517"
-     compileOnly "curse.maven:stellaris-1036270:8154670"
-     compileOnly "info.journeymap:journeymap-api-neoforge:2.0.0-1.21.1-SNAPSHOT"
-     */
+    modImplementation("dev.isxander:yet-another-config-lib:3.8.2+1.21.1-fabric")
+    //modImplementation "dev.isxander:yet-another-config-lib:3.8.1+1.21.1-fabric"
+    modImplementation("com.terraformersmc:modmenu:11.0.4")
 }
 
 loom {
