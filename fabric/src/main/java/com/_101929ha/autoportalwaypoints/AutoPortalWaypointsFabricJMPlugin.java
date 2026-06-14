@@ -2,6 +2,7 @@ package com._101929ha.autoportalwaypoints;
 
 import com.lightning.northstar.world.dimension.NorthstarDimensions;
 import com.st0x0ef.stellaris.common.data.planets.StellarisData;
+import fuzs.forgeconfigapiport.fabric.api.neoforge.v4.NeoForgeConfigRegistry;
 import journeymap.api.v2.client.IClientAPI;
 import journeymap.api.v2.client.IClientPlugin;
 import journeymap.api.v2.client.event.MappingEvent;
@@ -20,6 +21,8 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.levelgen.Heightmap;
+import net.neoforged.fml.config.ModConfig;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,10 +62,12 @@ public class AutoPortalWaypointsFabricJMPlugin implements IClientPlugin {
         List<? extends Waypoint> waypoints = jmAPI.getAllWaypoints(dim); //check all waypoints in this dimension
         for (int i = 0; i < waypoints.size(); i++) {
             Waypoint waypoint = waypoints.get(i);
-            if (YACLConfigFabric.HANDLER.instance().duplicateProximity == -1) {
+            if (ConfigFabric.DUPLICATE_PROXIMITY.get().equals(-1.0)) {
+            //if (YACLConfigFabric.HANDLER.instance().duplicateProximity == -1) {
                 return true; // simplest way to turn this mod off :)
             }
-            if (waypoint.getBlockPos().closerThan(coord, YACLConfigFabric.HANDLER.instance().duplicateProximity)){ //if it is within a cube of radius 3, consider it a duplicate
+            if (waypoint.getBlockPos().closerThan(coord, ConfigFabric.DUPLICATE_PROXIMITY.get())){ //if it is within a cube of radius 3, consider it a duplicate
+            //if (waypoint.getBlockPos().closerThan(coord, YACLConfigFabric.HANDLER.instance().duplicateProximity)){ //if it is within a cube of radius 3, consider it a duplicate
                 return true; //a waypoint is too close, it is probably a duplicate
             }
         }
@@ -86,10 +91,19 @@ public class AutoPortalWaypointsFabricJMPlugin implements IClientPlugin {
         this.jmAPI = jmClientApi;
         ClientEventRegistry.MAPPING_EVENT.subscribe(Constants.MOD_ID, this::mappingStageEvent);
 
-        YACLConfigFabric.HANDLER.load(); //Stolen from Bridging Mod
+
+        NeoForgeConfigRegistry.INSTANCE.register(
+                Constants.MOD_ID,
+                ModConfig.Type.CLIENT,
+                ConfigFabric.SPEC,
+                Constants.MOD_ID + "-client.toml"
+        );
+
+        //YACLConfigFabric.HANDLER.load(); //Stolen from Bridging Mod
 
         //Constants.LOG.info("Initialized " + getClass().getName());
-        waypointgroup.setShowBeacon(YACLConfigFabric.HANDLER.instance().beaconsEnabled); // Stolen from Bridging Mod
+        //waypointgroup.setShowBeacon(YACLConfigFabric.HANDLER.instance().beaconsEnabled); // Stolen from Bridging Mod
+        waypointgroup.setShowBeacon(ConfigFabric.BEACONS_ENABLED.get());
         waypointgroup.setOverrideSettings(true);
 
 

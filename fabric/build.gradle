@@ -21,9 +21,10 @@ dependencies {
     modCompileOnly "curse.maven:stellaris-1036270:8154666"
     modImplementation "info.journeymap:journeymap-api-fabric:2.0.0-1.21.1-SNAPSHOT"
 
-    modImplementation("dev.isxander:yet-another-config-lib:3.8.2+1.21.1-fabric")
-    //modImplementation "dev.isxander:yet-another-config-lib:3.8.1+1.21.1-fabric"
-    modImplementation("com.terraformersmc:modmenu:11.0.4")
+    //modImplementation("dev.isxander:yet-another-config-lib:3.8.2+1.21.1-fabric")
+    //modImplementation("com.terraformersmc:modmenu:11.0.4")
+
+    modImplementation("fuzs.forgeconfigapiport:forgeconfigapiport-fabric:21.1.6")
 }
 
 loom {

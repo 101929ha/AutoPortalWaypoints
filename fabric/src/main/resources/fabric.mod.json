@@ -8,8 +8,7 @@
         "${mod_author}"
     ],
     "contact": {
-        "homepage": "https://fabricmc.net/",
-        "sources": "https://github.com/FabricMC/fabric-example-mod"
+        "sources": "https://github.com/101929ha/AutoPortalWaypoints"
     },
     "license": "${license}",
     "icon": "${mod_id}.png",
@@ -20,9 +19,6 @@
         ],
         "journeymap": [
             "com._101929ha.autoportalwaypoints.AutoPortalWaypointsFabricJMPlugin"
-        ],
-        "modmenu": [
-            "com._101929ha.autoportalwaypoints.ModMenuIntegration"
         ]
     },
     "mixins": [
@@ -35,7 +31,7 @@
         "minecraft": "${minecraft_version}",
         "java": ">=${java_version}",
         "journeymap": ">=1.21.1-6.0.0-beta.78",
-        "yet_another_config_lib_v3": "*"
+        "forgeconfigapiport": "*"
     },
     "suggests": {
         "another-mod": "*"
